@@ -1,0 +1,153 @@
+body *,
+page view {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+body {
+  font-family: PingFangSC-Regular, Roboto, Helvetica Neue, Helvetica, Tahoma,
+    Arial, PingFang SC-Light, Microsoft YaHei;
+  margin: 0;
+  color: $uni-text-color;
+  font-size: $uni-font-size-base
+}
+button {
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  outline: none;
+  background-color: transparent;
+}
+
+button:active {
+  opacity: 0.6;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.justify-start {
+  display: flex;
+  justify-content: flex-start;
+}
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.justify-end {
+  display: flex;
+  justify-content: flex-end;
+}
+.justify-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+.justify-around {
+  display: flex;
+  justify-content: space-around;
+}
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+.align-start {
+  display: flex;
+  align-items: flex-start;
+}
+.align-center {
+  display: flex;
+  align-items: center;
+}
+.align-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+.main{
+	background:$uni-bg-color-grey;
+	width: 100vw;
+	min-height: 100%;
+}
+.bgf{
+	background-color: $uni-bg-color;
+}
+.mt16 {
+	margin-top: 16rpx;
+}
+
+.bottom-btn{
+	width:100vw;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: $uni-font-size-lg;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	color: #FFFFFF;
+	background-color: $main-color;
+}
+.bottom-btn-disabled{
+	background-color: #AAAAAA;
+}
+.d-title {
+	height: 90rpx;
+	line-height: 90rpx;
+	font-size: $uni-font-size-lg;
+	color: $uni-text-color;
+	font-weight: 600;
+	padding: 0 $base-page-spacing;
+	background-color: $uni-bg-color-grey !important;
+}
+
+// uview 样式重置
+.u-cell__title-text,.u-slot-title{
+	color: $uni-text-color-sub !important;
+	font-size: $uni-font-size-base;
+}
+.u-cell__value,.u-slot-value{
+	color: $uni-text-color !important;
+	font-size: $uni-font-size-base;
+}
+
+.u-line{
+	border-bottom: 1px solid $border-color !important;
+}
+::v-deep .u-form-item__body {
+	padding: 20rpx $base-page-spacing;
+	justify-content: space-between !important;
+}
+::v-deep .u-form-item__body__left__content__label{
+	font-size: $uni-font-size-base;
+	color: $uni-text-color;
+}
+.required{
+	color:#FF404F ;
+}
+::v-deep .uni-input-placeholder{
+	color: $uni-text-color-placeholder !important;
+	font-size: $uni-font-size-base !important;
+}
+
+::v-deep .u-form-item__body__right__message {
+	text-align: right;
+	padding-right: $base-page-spacing;
+}
+::v-deep .u-form-item__body__right__content__slot{
+	justify-content: flex-end;
+}
+::v-deep .u-input__content__field-wrapper__field {
+	text-align: right !important;
+}
+::v-deep .u-toolbar__wrapper__confirm{
+	color: $main-color !important;
+}
+::v-deep .u-cell__value {
+		overflow: hidden; //超出的文本隐藏
+		text-overflow: ellipsis; //用省略号显示
+		white-space: nowrap; //不换行
+		flex: 2;
+	}
