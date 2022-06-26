@@ -2,6 +2,7 @@ package com.sinosoft.loudhospital;
 
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaRecorder;
@@ -37,24 +38,36 @@ import cafe.adriel.androidaudiorecorder.model.AudioSource;
 
 public class JsInterface {
     private Handler handler = new Handler(Looper.getMainLooper());
-    private String userId;
+//    private String userId;
     private WebView webView;
     private Context context;
 
-    public JsInterface(Context context, WebView webView, String userId) {
-        this.userId = userId;
+    public JsInterface(Context context, WebView webView) {
+//        this.userId = userId;
         this.webView = webView;
         this.context = context;
     }
 
-    public String getUserId() {
-        return userId;
-    }
+//    public String getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(String userId) {
+//        this.userId = userId;
+//    }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    @JavascriptInterface
+    public void startTEMobileApp(){
+        Intent mIntent = context.getPackageManager().getLaunchIntentForPackage("com.huawei.TEMobile");
+        if (mIntent!= null) {
+            try {
+                context.startActivity(mIntent);
+            } catch (ActivityNotFoundException err) {
+                Toast.makeText(context, "TEMobile没有被安装！！！", Toast.LENGTH_SHORT).show();
+            }
+        }
 
+    }
     @JavascriptInterface
     public void goBack() {
         Log.d("222", "走了");
@@ -223,7 +236,7 @@ public class JsInterface {
     public void WSKUserId() {
         Log.d("333", "zoule");
         User user = new User();
-        user.setUserId(userId);
+//        user.setUserId(userId);
         Gson gson = new Gson();
         String jsonStr = gson.toJson(user);
         handler.post(new Runnable() {

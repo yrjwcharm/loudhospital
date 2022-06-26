@@ -16,15 +16,15 @@ import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
     private WebView webView;
-    private String userId;
+//    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.health_hut_main);
         webView = findViewById(R.id.webview);
-        Intent intent = getIntent();
-        userId = intent.getStringExtra("userId");
+//        Intent intent = getIntent();
+//        userId = intent.getStringExtra("userId");
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/index.html");
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        webView.addJavascriptInterface(new JsInterface(this, webView, userId), "android");
+        webView.addJavascriptInterface(new JsInterface(this, webView), "android");
 //        webView.loadUrl("file:///android_asset/index.html");
 
 
